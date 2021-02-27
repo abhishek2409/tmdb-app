@@ -1,0 +1,8 @@
+.list-loader--wrapper{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.list-loader--wrapper .shimmer{
+  margin: 10px;
+}

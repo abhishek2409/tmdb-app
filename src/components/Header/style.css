@@ -1,0 +1,38 @@
+.movie--header {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.8);
+  z-index: 9;
+  padding: 5px 0;
+  backdrop-filter: blur(2px);
+}
+
+.movie--header--container{
+  width: 1200px;
+  margin: 0 auto;
+}
+.movie--header__logo {
+  width: 70px;
+}
+.movie--header--input--box{
+  position: relative;
+  margin-top: 15px;
+}
+.movie--header--input--box__input{
+  border: 1px solid #aaa;
+  padding: 10px 70px 10px 10px;
+  width: 300px;
+  border-radius: 5px;
+  position: relative;
+}
+.movie--header--input--box__btn{
+  position: absolute;
+  right:10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  outline: 0;
+  box-shadow: none;
+  border: none;
+  cursor: pointer;
+}

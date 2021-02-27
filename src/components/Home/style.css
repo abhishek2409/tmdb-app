@@ -1,0 +1,32 @@
+.home--wrapper {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.home--wrapper__tabs {
+  display: flex;
+  margin: 50px 0;
+  position: sticky;
+  top: 84px;
+  z-index: 9;
+  background-color: white;
+}
+
+.home--wrapper__tabs__item {
+  border-bottom: 2px solid #ddd;
+  padding: 10px;
+  width: 50%;
+  cursor: pointer;
+  transition: border 0.2s ease-in;
+  font-size: 1.5em;
+}
+
+.home--wrapper__tabs__item:not(:last-of-type) {
+  margin-right: 10px;
+}
+
+.home--wrapper__tabs__item.active, .home--wrapper__tabs__item:hover {
+  transition: border 0.2s ease-out;
+  border-color: blue;
+}
+.home-wrapper__tabs__content{}

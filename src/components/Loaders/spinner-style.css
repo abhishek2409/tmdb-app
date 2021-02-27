@@ -1,0 +1,18 @@
+.spinner--wrapper{
+  position: fixed;
+  bottom:20vh;
+  left:50%;
+  transform: translateX(-50%);
+}
+.spinner{
+  width: 100px;
+  height: 100px;
+  border: 3px solid rgb(255 209 206 / 52%);
+  border-radius: 50%;
+  border-top-color: #f44336;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}

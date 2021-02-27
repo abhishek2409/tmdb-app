@@ -1,0 +1,65 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+body,html{
+  font-family: 'Raleway', sans-serif;
+  background-color: whitesmoke;
+}
+.bgProperties{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.makeFlex{
+  display: flex
+}
+.makeFlex.hrtlCenter{
+  justify-content: center;
+}
+.makeFlex.perfectCenter{
+  justify-content: center;
+  align-items: center;
+}
+.makeFlex.spaceBtwn{
+  justify-content: space-between;
+}
+.makeFlex.wrap{
+  flex-wrap: wrap;
+}
+.makeFlex .flexOne{
+  flex:1;
+}
+.boldFont{
+  font-weight: 700;
+}
+.medFont{
+  font-weight: 500;
+}
+.lightFont{
+  font-weight: 300;
+}
+.appendBottom20{
+  margin-bottom: 20px;
+}
+.appendBottom10{
+  margin-bottom: 10px;
+}
+.appendBottom15{
+  margin-bottom: 15px;
+}
+.appendTop20{
+  margin-top: 20px;
+}
+.appendTop10{
+  margin-top: 10px;
+}
+.appendLeft20{
+  margin-left: 20px;
+}
+.appendLeft10{
+  margin-left: 10px;
+}
+.font22{
+  font-size: 22px;
+}
