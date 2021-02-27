@@ -10,6 +10,7 @@ import './style.css'
 import Loaders from '../Loaders';
 import NOT_FOUND_POSTER from '../../assets/images/not-found.png';
 import NOT_FOUND_BACKDROP from '../../assets/images/not-found-backdrop.png'
+import ErrorDetails from '../Error'
 
 let MovieDetails = (props) => {
   const { movie_id } = useParams();
@@ -19,12 +20,19 @@ let MovieDetails = (props) => {
   const isDataPresent = moviesData?.[movie_id]?.isDataPresent;
   const isError = moviesData?.[movie_id]?.isError;
   const movieDetails = moviesData?.[movie_id]?.data
+  const errorData = moviesData?.[movie_id]?.error
 
   useEffect(() => {
     if(!isLoading && !isDataPresent && !isError){
       fetchMovieData(movie_id)
     }
   })
+
+  if(isError && !isDataPresent){
+    return(
+      <ErrorDetails msg={errorData} cssClass="detail--error" />
+    )
+  }
 
   if(isLoading){
     return(<Loaders type={LOADER_TYPE.DETAILS} />)
@@ -44,8 +52,6 @@ let MovieDetails = (props) => {
     const { backdrop_path, genres, homepage, imdb_id, overview, production_companies, production_countries, release_date, spoken_languages, title, vote_average, poster_path, tagline, status } = movieDetails
     const posterImage = poster_path ? IMAGE_BASE_URL.replace(/{size}/, "w500").replace(/{path}/, poster_path) : NOT_FOUND_POSTER
     const backdropImage = backdrop_path ? IMAGE_BASE_URL.replace(/{size}/, "original").replace(/{path}/, backdrop_path) : NOT_FOUND_BACKDROP
-
-    console.log(NOT_FOUND_POSTER);
 
     return (
       <div className="movie--details--wrapper">

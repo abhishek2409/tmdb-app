@@ -60,7 +60,7 @@ const homeReducer = (state = initialState, action) => {
       }
     }
     case FETCH_MOVIES_ERROR:{
-      const { key } = action.payload
+      const { key, data } = action.payload
       return{
         ...state,
         [key]:{
@@ -68,6 +68,7 @@ const homeReducer = (state = initialState, action) => {
           isRequested:false,
           isDataPresent:false,
           isError:true,
+          error:data
         }
       }
     }

@@ -9,6 +9,7 @@ import './style.css';
 import GotoTop from '../GotoTop'
 import Loaders from '../Loaders'
 import { LOADER_TYPE } from '../../constants'
+import ErrorDetails from '../Error'
 
 let SearchPage = (props) => {
   const { keyword } = useParams();
@@ -17,6 +18,7 @@ let SearchPage = (props) => {
   const isLoading = searchData?.[keyword]?.isRequested;
   const isDataPresent = searchData?.[keyword]?.isDataPresent;
   const isError = searchData?.[keyword]?.isError;
+  const errorData = searchData?.[keyword]?.error;
   const currentPage = searchData?.[keyword]?.currentPage || 0
   const totalPages = searchData?.[keyword]?.total_pages
   const totalResults = searchData?.[keyword]?.total_results
@@ -55,6 +57,9 @@ let SearchPage = (props) => {
       {isLoading && !isDataPresent &&  (
         <Loaders type={LOADER_TYPE.LIST} />
       )}
+      {isError && !isDataPresent ? (
+        <ErrorDetails msg={errorData} />
+      ) : null}
       <GotoTop />
     </div>
   );

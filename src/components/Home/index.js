@@ -8,6 +8,7 @@ import MoviesList from '../MoviesList'
 import './style.css'
 import GotoTop from '../GotoTop'
 import Loaders from '../Loaders';
+import ErrorDetails from '../Error'
 
 const tabs = [
   {
@@ -29,6 +30,11 @@ let Home = (props) => {
   const currentMovieDataPresent = currentPlayingMovie?.isDataPresent
   const trendingMovieLoading = trendingMovie?.isRequested;
   const currentPlayingMovieLoading = currentPlayingMovie?.isRequested;
+  const trendingMovieError = trendingMovie?.isError
+  const currentPlayingMovieError = currentPlayingMovie?.isError
+
+  const trendingMovieErrorData = trendingMovie?.error
+  const currentPlayingMovieErrorData = currentPlayingMovie?.error
 
 
 
@@ -81,12 +87,12 @@ let Home = (props) => {
     setCurrentTab(tab);
     switch (tab) {
       case  MOVIES_KEY.TRENDING:
-        if(!trendingMovieDataPresent){
+        if(!trendingMovieDataPresent && !trendingMovieError){
           fetchMovies(currentTrendingMoviePage + 1, MOVIES_KEY.TRENDING)
         }
         break;
       case  MOVIES_KEY.CURRENT:
-        if(!currentMovieDataPresent){
+        if(!currentMovieDataPresent && !currentPlayingMovieError){
           fetchMovies(currentPlayingMovieCurrentPage + 1, MOVIES_KEY.CURRENT)
         }
         break;
@@ -94,7 +100,7 @@ let Home = (props) => {
         return;
     }
   }
-  
+
   return (
     <div className="home--wrapper">
       <div className="home--wrapper__tabs">
@@ -118,6 +124,9 @@ let Home = (props) => {
       ) : null}
       {currentTab ===  MOVIES_KEY.CURRENT && currentMovieDataPresent ? (
         <MoviesList {...currentPlayingMoviesProps} />
+      ) : null}
+      {(trendingMovieError && trendingMovieErrorData) || (currentPlayingMovieError && currentPlayingMovieErrorData) ? (
+        <ErrorDetails msg={trendingMovieErrorData || currentPlayingMovieErrorData} />
       ) : null}
       <GotoTop/>
     </div>

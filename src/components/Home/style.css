@@ -6,9 +6,6 @@
 .home--wrapper__tabs {
   display: flex;
   margin: 50px 0;
-  position: sticky;
-  top: 84px;
-  z-index: 9;
   background-color: white;
 }
 
@@ -27,6 +24,6 @@
 
 .home--wrapper__tabs__item.active, .home--wrapper__tabs__item:hover {
   transition: border 0.2s ease-out;
-  border-color: blue;
+  border-color: #f44336;
 }
 .home-wrapper__tabs__content{}

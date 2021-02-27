@@ -29,13 +29,14 @@ const movieDetailsReducer = (state = initialState, action) => {
       }
     }
     case FETCH_MOVIE_DETAILS_ERROR:{
-      const { movie_id } = action.payload
+      const { movie_id, data } = action.payload
       return{
         ...state,
         [movie_id]:{
           isRequested:false,
           isDataPresent:false,
           isError:true,
+          error:data
         }
       }
     }

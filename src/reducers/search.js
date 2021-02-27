@@ -34,7 +34,7 @@ const searchReducer = (state = initialState, action) => {
       }
     }
     case FETCH_SEARCH_ERROR:{
-      const { key } = action.payload
+      const { key, data } = action.payload
       return{
         ...state,
         [key]:{
@@ -42,6 +42,7 @@ const searchReducer = (state = initialState, action) => {
           isRequested:false,
           isDataPresent:false,
           isError:true,
+          error:data
         }
       }
     }
